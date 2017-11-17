@@ -11,7 +11,7 @@ class UploadScreen extends React.Component {
 
   onDrop(acceptedFiles, rejectedFiles) {
     // console.log('Accepted files: ', acceptedFiles[0].name);
-    let filesToBeSent = this.state.filesToBeSent;
+    var filesToBeSent = this.state.filesToBeSent;
     filesToBeSent.push(acceptedFiles);
     this.setState({ filesToBeSent });
   }
