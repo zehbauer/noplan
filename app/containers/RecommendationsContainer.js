@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 import HotelRecommendation from '../components/HotelRecommendation';
+import Best5 from '../components/Best5';
 
 class HotelRecommendationsContainer extends React.Component {
   render() {
@@ -17,8 +18,8 @@ class HotelRecommendationsContainer extends React.Component {
         </Paper>
       );
     } else {
-      best5 = response.data;
-      return <div> Best 5 Component to do </div>;
+      best5 = response.data.best5;
+      return <Best5 data={best5} />;
     }
   }
 }
