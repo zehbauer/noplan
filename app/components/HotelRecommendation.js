@@ -20,11 +20,7 @@ const HotelRecommendation = props => {
   return (
     <div>
       <Card className={classes.card} key={data.hotel_id}>
-        <CardMedia
-          className={classes.media}
-          image={data['image_url']}
-          title="Contemplative Reptile"
-        />
+        <CardMedia className={classes.media} image={data['image_url']} />
         <CardContent>
           <Typography type="headline" component="h2">
             {data.name ? `${data.name}` : ''}
