@@ -41,7 +41,7 @@ class UploadScreen extends React.Component {
         })
         .then(response => {
           this.props.handleResponse(response);
-          console.log(response);
+          // console.log(response);
         })
         .catch(error => {
           console.log(error);

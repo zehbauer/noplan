@@ -15,7 +15,7 @@ const styles = {
   }
 };
 
-const Recommendation = props => {
+const HotelRecommendation = props => {
   const { classes, data } = props;
   return (
     <div>
@@ -61,7 +61,7 @@ const Recommendation = props => {
   );
 };
 
-Recommendation.propTypes = {
+HotelRecommendation.propTypes = {
   classes: PropTypes.object.isRequired,
   data: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -72,4 +72,4 @@ Recommendation.propTypes = {
   })
 };
 
-export default withStyles(styles)(Recommendation);
+export default withStyles(styles)(HotelRecommendation);
