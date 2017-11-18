@@ -4,28 +4,50 @@ import Paper from 'material-ui/Paper';
 import HotelRecommendation from '../components/HotelRecommendation';
 import Best5 from '../components/Best5';
 
-class HotelRecommendationsContainer extends React.Component {
+class RecommendationsContainer extends React.Component {
   render() {
     let check24data, best5;
-    let { response } = this.props;
-    if (response.data.c24result) {
+    let { response, handleDislike } = this.props;
+    debugger;
+    if (response.data && response.data.c24result) {
       check24data = response.data.c24result.search.results;
       return (
         <Paper>
           {check24data.map((item, i) => {
-            return <HotelRecommendation data={item} key={i} />;
+            return (
+              <HotelRecommendation
+                data={item}
+                key={i}
+                handleDislike={handleDislike}
+              />
+            );
           })}
         </Paper>
       );
-    } else {
+    } else if (response.data && response.data.best5) {
       best5 = response.data.best5;
       return <Best5 data={best5} />;
+    } else {
+      return (
+        <Paper>
+          {response.map((item, i) => {
+            return (
+              <HotelRecommendation
+                data={item}
+                key={i}
+                handleDislike={handleDislike}
+              />
+            );
+          })}
+        </Paper>
+      );
     }
   }
 }
 
-HotelRecommendationsContainer.PropTyes = {
-  response: PropTypes.array.isRequired
+RecommendationsContainer.PropTyes = {
+  response: PropTypes.array.isRequired,
+  handleDislike: PropTypes.func
 };
 
-export default HotelRecommendationsContainer;
+export default RecommendationsContainer;

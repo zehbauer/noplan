@@ -53,7 +53,12 @@ const HotelRecommendation = props => {
           <Button raised color="primary" className={classes.button}>
             Book
           </Button>
-          <Button raised color="accent" className={classes.button}>
+          <Button
+            raised
+            color="accent"
+            className={classes.button}
+            onClick={() => props.handleDislike(data.hotel_id)}
+          >
             <ThumbDown /> Not Interested
           </Button>
         </CardActions>
@@ -64,6 +69,7 @@ const HotelRecommendation = props => {
 
 HotelRecommendation.propTypes = {
   classes: PropTypes.object.isRequired,
+  handleDislike: PropTypes.func,
   data: PropTypes.shape({
     name: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
