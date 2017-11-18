@@ -10,24 +10,23 @@ class AppContainer extends React.Component {
     this.setState({ receivedResponse: true, response: response });
   };
   handleDislike = id => {
-    console.log(id);
-    console.log(this.state.response);
-    let arrayToFilter = this.state.response.data.c24result.search.results;
-    let response = {};
-    let res = [];
-    // response['data']['c24result']['search']['result'] = _.map(
-    //   this.state.response.data.c24result.search.results,
-    //   el => {
-    //     return id === el.hotel_id;
-    //   }
-    // );
+    let data = this.state.response.data;
+    let arrayToFilter = [];
+    if (data) {
+      if (data.c24result) {
+        arrayToFilter = data.c24result;
+      } else if (data.best5) {
+        arrayToFilter = data.best5;
+      }
+    }
     let index = _.findIndex(arrayToFilter, el => {
       return id === el.hotel_id;
     });
     if (index !== -1) {
       let arrayStart = arrayToFilter.slice(0, index);
       let arrayEnd = arrayToFilter.slice(index + 1, arrayToFilter.length);
-      res = arrayStart.concat(arrayEnd);
+      let res = arrayStart.concat(arrayEnd);
+      debugger;
       this.setState({ response: res });
     }
   };
