@@ -29,7 +29,7 @@ const ButtonAppBar = props => {
       <AppBar position="static">
         <Toolbar>
           <Typography type="title" color="inherit" className={classes.flex}>
-            A title
+            Check24 - My Next Vacation
           </Typography>
         </Toolbar>
       </AppBar>

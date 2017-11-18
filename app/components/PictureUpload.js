@@ -3,6 +3,7 @@ import React from 'react';
 import Button from 'material-ui/Button';
 import Card from 'material-ui/Card';
 import Send from 'material-ui-icons/Send';
+import Camera from 'material-ui-icons/Camera';
 import Preview from './Preview';
 import axios from 'axios';
 import {CircularProgress} from 'material-ui/Progress';
@@ -74,10 +75,9 @@ class UploadScreen extends React.Component {
                 {sending ? (
                     <CircularProgress className={classes.spinner} size={150} thickness={7}/>
                 ) : (
-                    <div><Button raised color="primary" onClick={this.handleSend} disabled={!picturesUploaded}>
-                        <Send/>
-                        Send Pictures
-                    </Button>
+                    <div>
+                        <Button color="primary" onClick={this.CameraUpload}><Camera/>Shoot Picture</Button><br/>
+                        <Button color="primary" onClick={this.handleSend} disabled={!picturesUploaded}><Send/>Send Pictures</Button>
                         <Card>
                             <h2>Upload pictures here</h2>
                             <Dropzone onDrop={files => this.onDrop(files)}/>
