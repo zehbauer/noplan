@@ -1,11 +1,12 @@
 import React from 'react';
 import FileUpload from './PictureUpload';
+import AppBar from './AppBar';
 
 const App = () => {
   return (
     <div>
+      <AppBar />
       <FileUpload />
-      <h2 id="heading">Hello ReactJS</h2>
     </div>
   );
 };
