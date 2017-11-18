@@ -7,6 +7,12 @@ import Preview from './Preview';
 import axios from 'axios';
 import { CircularProgress } from 'material-ui/Progress';
 import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+    }})
 
 const endpoint = 'http://52.232.1.52:1337/directupload';
 
@@ -60,13 +66,13 @@ class UploadScreen extends React.Component {
         {sending ? (
           <CircularProgress />
         ) : (
+            <div><Button raised color="primary" onClick={this.handleSend} disabled={!picturesUploaded}>
+              <Send />
+              Send Pictures
+            </Button>
           <Card>
             <h2>Upload pictures here</h2>
             <Dropzone onDrop={files => this.onDrop(files)} />
-            <Button raised color="primary" onClick={this.handleSend}>
-              Send
-              <Send />
-            </Button>
             {picturesUploaded ? (
               <Preview
                 pictures={filesToBeSent}
@@ -76,6 +82,7 @@ class UploadScreen extends React.Component {
               <div />
             )}
           </Card>
+            </div>
         )}
       </div>
     );

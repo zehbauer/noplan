@@ -1,31 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
+import { IconButton } from 'material-ui/IconButton';
+import RemoveCircle from 'material-ui-icons/RemoveCircle'
 import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
 
 const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    // justifyContent: 'space-around',
-    overflow: 'hidden'
-  },
-  gridList: {
-    // flexWrap: 'nowrap',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: 'translateZ(0)'
-  }
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+        background: theme.palette.background.paper,
+    },
+    gridList: {
+        transform: 'translateZ(0)'
+    },
 });
+
 const TitlebarGridList = props => {
   const { classes, pictures, onPictureRemove } = props;
   return (
     <div className={classes.container}>
-      <GridList className={classes.gridList}>
-        <GridListTile key="Subheader" cols={4} style={{ height: 'auto' }} />
+      <GridList className={classes.gridList} cols={4}>
+        <GridListTile key="Subheader"  style={{ height: 'auto' }} />
         {pictures.map((item, index) => (
           <GridListTile key={index}>
             <img src={item[0].preview} />
-            <GridListTileBar title={item[0].name} />
+            <GridListTileBar title={item[0].name}>
+            </GridListTileBar>
           </GridListTile>
         ))}
       </GridList>
