@@ -82,9 +82,6 @@ class UploadScreen extends React.Component {
         ) : (
           <div>
             <div>
-              <Button color="primary" onClick={this.CameraUpload}>
-                <Camera />Shoot Picture
-              </Button>
               <Button
                 color="primary"
                 onClick={this.handleSend}

@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import { IconButton } from 'material-ui/IconButton';
-import RemoveCircle from 'material-ui-icons/RemoveCircle';
-import InfoIcon from 'material-ui-icons/RemoveCircle';
 import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
 
 const styles = theme => ({
