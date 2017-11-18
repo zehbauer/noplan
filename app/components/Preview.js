@@ -17,7 +17,7 @@ const styles = theme => ({
   }
 });
 const TitlebarGridList = props => {
-  const { classes, pictures } = props;
+  const { classes, pictures, onPictureRemove } = props;
   return (
     <div className={classes.container}>
       <GridList className={classes.gridList}>
@@ -34,7 +34,8 @@ const TitlebarGridList = props => {
 };
 
 TitlebarGridList.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  onPictureRemove: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(TitlebarGridList);

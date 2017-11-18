@@ -49,6 +49,10 @@ class UploadScreen extends React.Component {
     }
   };
 
+  handleRemove = pictures => {
+    this.setState({ filesToBeSent: pictures });
+  };
+
   render() {
     let { picturesUploaded, filesToBeSent, sending } = this.state;
     return (
@@ -63,7 +67,14 @@ class UploadScreen extends React.Component {
               Send
               <Send />
             </Button>
-            {picturesUploaded ? <Preview pictures={filesToBeSent} /> : <div />}
+            {picturesUploaded ? (
+              <Preview
+                pictures={filesToBeSent}
+                onPictureRemove={this.handleRemove}
+              />
+            ) : (
+              <div />
+            )}
           </Card>
         )}
       </div>
