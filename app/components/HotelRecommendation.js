@@ -43,6 +43,11 @@ const HotelRecommendation = props => {
               ? `Available discount: ${data.discount}`
               : ''}
           </Typography>
+          <Typography component="p">
+            {data.best_offer
+              ? `Best offer by: ${data.best_offer.supplier_name}`
+              : ''}
+          </Typography>
         </CardContent>
         <CardActions>
           <Button raised color="primary" className={classes.button}>
@@ -64,7 +69,10 @@ HotelRecommendation.propTypes = {
     city: PropTypes.string.isRequired,
     street: PropTypes.string.isRequired,
     currency: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired
+    price: PropTypes.string.isRequired,
+    best_offer: PropTypes.shape({
+      supplier_name: PropTypes.string
+    })
   })
 };
 
