@@ -95,6 +95,7 @@ const config = {
       disable: false,
       allChunks: true
     }),
+    new webpack.NamedModulesPlugin(),
     new CopyWebpackPlugin([{ from: 'vendors', to: 'vendors' }]),
     new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
     new webpack.HotModuleReplacementPlugin()

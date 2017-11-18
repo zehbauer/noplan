@@ -1,29 +1,30 @@
 import Dropzone from 'react-dropzone';
 import React from 'react';
+import Button from 'material-ui/Button';
+import Preview from './Preview';
 
 class UploadScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filesToBeSent: []
-    };
-  }
+  state = {
+    filesToBeSent: [],
+    picturesUploaded: false
+  };
 
   onDrop(acceptedFiles, rejectedFiles) {
-    // console.log('Accepted files: ', acceptedFiles[0].name);
     let filesToBeSent = this.state.filesToBeSent;
     filesToBeSent.push(acceptedFiles);
-    this.setState({ filesToBeSent });
+    this.setState({ filesToBeSent, picturesUploaded: true });
   }
 
   render() {
+    let { picturesUploaded, filesToBeSent } = this.state;
     return (
-      <div className="App">
-        <Dropzone onDrop={files => this.onDrop(files)}>
-          <div>
-            Try dropping some files here, or click to select files to upload.
-          </div>
-        </Dropzone>
+      <div>
+        <h2>Upload pictures here</h2>
+        <Dropzone onDrop={files => this.onDrop(files)} />
+        <Button raised color="primary">
+          Submit Pictures
+        </Button>
+        {picturesUploaded ? <Preview pictures={filesToBeSent} /> : <div />}
       </div>
     );
   }

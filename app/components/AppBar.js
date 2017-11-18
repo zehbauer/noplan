@@ -28,17 +28,9 @@ const ButtonAppBar = props => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            className={classes.menuButton}
-            color="contrast"
-            aria-label="Menu"
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
-            This is going to be the apps title
+            A title
           </Typography>
-          <Button color="contrast">Login</Button>
         </Toolbar>
       </AppBar>
     </div>

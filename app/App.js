@@ -1,6 +1,6 @@
 import React from 'react';
-import FileUpload from './PictureUpload';
-import AppBar from './AppBar';
+import FileUpload from './components/PictureUpload';
+import AppBar from './components/AppBar';
 
 const App = () => {
   return (
