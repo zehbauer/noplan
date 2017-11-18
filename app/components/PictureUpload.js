@@ -9,6 +9,7 @@ import axios from 'axios';
 import {CircularProgress} from 'material-ui/Progress';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
+import {Grid} from 'material-ui/Grid';
 
 const styles = theme => ({
     spinner: {
@@ -76,11 +77,16 @@ class UploadScreen extends React.Component {
                     <CircularProgress className={classes.spinner} size={150} thickness={7}/>
                 ) : (
                     <div>
-                        <Button color="primary" onClick={this.CameraUpload}><Camera/>Shoot Picture</Button><br/>
-                        <Button color="primary" onClick={this.handleSend} disabled={!picturesUploaded}><Send/>Send Pictures</Button>
-                        <Card>
+                        <div>
+
+                            <Button color="primary" onClick={this.CameraUpload}><Camera/>Shoot
+                                Picture</Button>
+                            <Button color="primary" onClick={this.handleSend}
+                                    disabled={!picturesUploaded}><Send/>Send Pictures</Button>
                             <h2>Upload pictures here</h2>
                             <Dropzone onDrop={files => this.onDrop(files)}/>
+                        </div>
+                        <Card>
                             {picturesUploaded ? (
                                 <Preview
                                     pictures={filesToBeSent}
