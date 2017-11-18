@@ -5,11 +5,13 @@ import AppContainer from './containers/AppContainer';
 import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 import indigo from 'material-ui/colors/indigo';
 import cyan from 'material-ui/colors/cyan';
+import red from 'material-ui/colors/red';
 
 const theme = createMuiTheme({
     palette: {
         primary: indigo,
-        secondary: cyan
+        secondary: cyan,
+        error: red
     }
 });
 
