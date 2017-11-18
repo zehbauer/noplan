@@ -44,7 +44,7 @@ class UploadScreen extends React.Component {
     } else {
       this.setState({ sending: true });
       //put together request
-      let formData = new FormData(this);
+      let formData = new FormData();
       this.state.filesToBeSent.forEach(el => {
         formData.append('photos', el[0], el[0].name);
       });

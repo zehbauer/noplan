@@ -9,7 +9,7 @@ class RecommendationsContainer extends React.Component {
     let check24data, best5;
     let { response, handleDislike } = this.props;
     if (response.data && response.data.c24result) {
-      check24data = response.data.c24result.search.results;
+      check24data = response.data.c24result;
       return (
         <Paper>
           {check24data.map((item, i) => {
