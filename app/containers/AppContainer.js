@@ -26,7 +26,6 @@ class AppContainer extends React.Component {
       let arrayStart = arrayToFilter.slice(0, index);
       let arrayEnd = arrayToFilter.slice(index + 1, arrayToFilter.length);
       let res = arrayStart.concat(arrayEnd);
-      debugger;
       this.setState({ response: res });
     }
   };
