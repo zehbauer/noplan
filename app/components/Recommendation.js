@@ -63,7 +63,13 @@ const Recommendation = props => {
 
 Recommendation.propTypes = {
   classes: PropTypes.object.isRequired,
-  data: PropTypes.object.isRequired
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    street: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired
+  })
 };
 
 export default withStyles(styles)(Recommendation);
