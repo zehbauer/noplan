@@ -5,13 +5,15 @@ import Card from 'material-ui/Card';
 import Send from 'material-ui-icons/Send';
 import Preview from './Preview';
 import axios from 'axios';
+import { CircularProgress } from 'material-ui/Progress';
 
 const endpoint = 'http://52.232.1.52:1337/directupload';
 
 class UploadScreen extends React.Component {
   state = {
     filesToBeSent: [],
-    picturesUploaded: false
+    picturesUploaded: false,
+    sending: false
   };
 
   onDrop = (acceptedFiles, rejectedFiles) => {
@@ -24,6 +26,7 @@ class UploadScreen extends React.Component {
     if (this.state.filesToBeSent.length < 1) {
       console.log('no pictures selected ');
     } else {
+      this.setState({ sending: true });
       //put together request
       let formData = new FormData(this);
       this.state.filesToBeSent.forEach(el => {
@@ -45,17 +48,23 @@ class UploadScreen extends React.Component {
   };
 
   render() {
-    let { picturesUploaded, filesToBeSent } = this.state;
+    let { picturesUploaded, filesToBeSent, sending } = this.state;
     return (
-      <Card>
-        <h2>Upload pictures here</h2>
-        <Dropzone onDrop={files => this.onDrop(files)} />
-        <Button raised color="primary" onClick={this.handleSend}>
-          Send
-          <Send />
-        </Button>
-        {picturesUploaded ? <Preview pictures={filesToBeSent} /> : <div />}
-      </Card>
+      <div>
+        {sending ? (
+          <CircularProgress />
+        ) : (
+          <Card>
+            <h2>Upload pictures here</h2>
+            <Dropzone onDrop={files => this.onDrop(files)} />
+            <Button raised color="primary" onClick={this.handleSend}>
+              Send
+              <Send />
+            </Button>
+            {picturesUploaded ? <Preview pictures={filesToBeSent} /> : <div />}
+          </Card>
+        )}
+      </div>
     );
   }
 }
