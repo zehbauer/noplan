@@ -5,20 +5,26 @@
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist",
-    "production":
-      "cross-env npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
+    "production": "cross-env npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage"
   },
   "license": "MIT",
   "jest": {
-    "setupFiles": ["<rootDir>/shim.js"],
+    "setupFiles": [
+      "<rootDir>/shim.js"
+    ],
     "mapCoverage": true,
-    "collectCoverageFrom": ["app/**/*.{js,jsx,ts,tsx}"],
-    "testMatch": ["**/?(*.)(spec|test).js?(x)"]
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx,ts,tsx}"
+    ],
+    "testMatch": [
+      "**/?(*.)(spec|test).js?(x)"
+    ]
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "cross-env": "5.1.1",
     "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "^1.0.0-beta.17",

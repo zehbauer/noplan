@@ -4,24 +4,24 @@ import { withStyles } from 'material-ui/styles';
 import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
 
 const styles = theme => ({
-  container: {
+  root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    background: theme.palette.background.paper
+    // justifyContent: 'space-around',
+    overflow: 'hidden'
   },
   gridList: {
-    width: 500,
-    height: 450
+    // flexWrap: 'nowrap',
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: 'translateZ(0)'
   }
 });
 const TitlebarGridList = props => {
   const { classes, pictures } = props;
   return (
     <div className={classes.container}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }} />
+      <GridList className={classes.gridList}>
+        <GridListTile key="Subheader" cols={4} style={{ height: 'auto' }} />
         {pictures.map((item, index) => (
           <GridListTile key={index}>
             <img src={item[0].preview} />
