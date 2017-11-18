@@ -6,6 +6,7 @@ import Send from 'material-ui-icons/Send';
 import Preview from './Preview';
 import axios from 'axios';
 import { CircularProgress } from 'material-ui/Progress';
+import PropTypes from 'prop-types';
 
 const endpoint = 'http://52.232.1.52:1337/directupload';
 
@@ -39,6 +40,7 @@ class UploadScreen extends React.Component {
           }
         })
         .then(response => {
+          this.props.handleResponse(response);
           console.log(response);
         })
         .catch(error => {
@@ -68,5 +70,9 @@ class UploadScreen extends React.Component {
     );
   }
 }
+
+UploadScreen.PropTypes = {
+  handleResponse: PropTypes.func
+};
 
 export default UploadScreen;
