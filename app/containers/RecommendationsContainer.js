@@ -8,7 +8,6 @@ class RecommendationsContainer extends React.Component {
   render() {
     let check24data, best5;
     let { response, handleDislike } = this.props;
-    debugger;
     if (response.data && response.data.c24result) {
       check24data = response.data.c24result.search.results;
       return (

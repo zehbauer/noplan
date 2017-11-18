@@ -55,14 +55,14 @@ const HotelRecommendation = props => {
           <Button raised color="primary" className={classes.button}>
             Book
           </Button>
-          <Button
+          <IconButton
             raised
             color="accent"
             className={classes.button}
             onClick={() => props.handleDislike(data.hotel_id)}
           >
-            <ThumbDown /> Not Interested
-          </Button>
+            <ThumbDown />
+          </IconButton>
         </CardActions>
       </Card>
     </div>
