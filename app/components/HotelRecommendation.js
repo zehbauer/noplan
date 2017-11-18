@@ -19,54 +19,58 @@ const styles = {
 
 const HotelRecommendation = props => {
   const { classes, data } = props;
-  return (
-    <div>
-      <Card className={classes.card} key={data.hotel_id}>
-        <CardMedia className={classes.media} image={data['image_url']} />
-        <CardContent>
-          <Typography type="headline" component="h2">
-            {data.name ? `${data.name}` : ''}
-          </Typography>
-          <Typography component="p">
-            {data.street && data.city ? `${data.street} in ${data.city}` : ''}
-          </Typography>
-          <Typography component="p">
-            {data.price && data.currency
-              ? `Price : ${data.price} ${data.currency}`
-              : ''}
-          </Typography>
-          <Typography component="p">
-            {data.rating_average
-              ? `Average rating: ${data.rating_average}`
-              : ''}
-          </Typography>
-          <Typography component="p">
-            {data.discount && data.discount > 0
-              ? `Available discount: ${data.discount}`
-              : ''}
-          </Typography>
-          <Typography component="p">
-            {data.best_offer
-              ? `Best offer by: ${data.best_offer.supplier_name}`
-              : ''}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button raised color="primary" className={classes.button}>
-            Book
-          </Button>
-          <IconButton
-            raised
-            color="accent"
-            className={classes.button}
-            onClick={() => props.handleDislike(data.hotel_id)}
-          >
-            <ThumbDown />
-          </IconButton>
-        </CardActions>
-      </Card>
-    </div>
-  );
+  if (data['image_url']) {
+    return (
+      <div>
+        <Card className={classes.card} key={data.hotel_id}>
+          <CardMedia className={classes.media} image={data['image_url']} />
+          <CardContent>
+            <Typography type="headline" component="h2">
+              {data.name ? `${data.name}` : ''}
+            </Typography>
+            <Typography component="p">
+              {data.street && data.city ? `${data.street} in ${data.city}` : ''}
+            </Typography>
+            <Typography component="p">
+              {data.price && data.currency
+                ? `Price : ${data.price} ${data.currency}`
+                : ''}
+            </Typography>
+            <Typography component="p">
+              {data.rating_average
+                ? `Average rating: ${data.rating_average}`
+                : ''}
+            </Typography>
+            <Typography component="p">
+              {data.discount && data.discount > 0
+                ? `Available discount: ${data.discount}`
+                : ''}
+            </Typography>
+            <Typography component="p">
+              {data.best_offer
+                ? `Best offer by: ${data.best_offer.supplier_name}`
+                : ''}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button raised color="primary" className={classes.button}>
+              Book
+            </Button>
+            <IconButton
+              raised
+              color="accent"
+              className={classes.button}
+              onClick={() => props.handleDislike(data.hotel_id)}
+            >
+              <ThumbDown />
+            </IconButton>
+          </CardActions>
+        </Card>
+      </div>
+    );
+  } else {
+    return <div />;
+  }
 };
 
 HotelRecommendation.propTypes = {
